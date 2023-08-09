@@ -1,0 +1,29 @@
+React Native Custom Fonts
+
+1st Step 
+create folder name ==> fonts
+
+2nd Step
+Add some custom fonts in it.
+
+3rd Step
+cut fonts folder and past it in this directory:
+../android/app/src/main/assets
+OR
+Project/assets
+
+last step
+create file name ==> react-native.config.js
+and past some data in it.
+
+module.exports = {
+    project: {
+      ios: {},
+      android: {}, // grouped into "project"
+    },
+    assets: ["./assets/fonts/"], // stays the same
+};
+
+then just run in terminal ==> npx react-native-asset
+
+

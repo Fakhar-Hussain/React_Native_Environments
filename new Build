@@ -1,0 +1,9 @@
+android:screenOrientation="portrait" 
+first open package.json in project file
+
+then past this code in scripts tag:
+"createAndroidBuild" : "cd android && ./gradlew clean && ./gradlew assembleRelease"
+
+then open terminal and enter in project directory
+npm run createAndroidBuild
+

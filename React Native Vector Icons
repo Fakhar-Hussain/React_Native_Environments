@@ -1,0 +1,14 @@
+React Native Vector Icons
+
+1st Step
+installation 
+npm i react-native-vector-icons
+
+2nd Step
+Set Setting
+OPEN ==> .android/app/build.gradle
+After this
+==> apply from: "../../node_modules/react-native/react.gradle"
+Past ==> apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+Then Start ==> npx react-native run-android

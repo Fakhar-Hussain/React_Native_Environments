@@ -1,0 +1,30 @@
+React native reanimated
+
+first step
+npm install react-native-reanimated
+
+second step
+copy past this code in babel-config.js
+
+plugins: [
+    [
+      'react-native-reanimated/plugin', {
+          relativeSourceLocation: true,
+      },
+    ]
+ ]
+  
+&
+
+React native gesture handler
+
+first step
+npm install react-native-gesture-handler
+
+second step
+import this in top of the App.js file
+import 'react-native-gesture-handler';
+
+
+
+

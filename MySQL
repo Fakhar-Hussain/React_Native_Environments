@@ -1,0 +1,125 @@
+SQL Database:
+
+1st Start the Server:
+sudo ./lampp start
+
+then change directory to bin/
+/opt/lampp/bin$
+
+/opt/lampp/bin$ sudo ./mysql.server start
+/opt/lampp/bin$ ./mysql -u root
+
+then...
+MariaDB: show databases; // show all the databases you have in the server.
+MariaDB: use databaseName; // to Select the datbase you want.
+MariaDB: show tables; //show the tables you have in the database.
+MariaDB: desc tableName; // show all the structure of tables.
+
+if you create or delete database type:
+MariaDB: create database databaseName;
+MariaDB: drop database databaseName;
+
+if you create or delete tables type:
+MariaDB: CREATE TABLE table_name (
+    		PersonID int,
+    		LastName varchar(255),
+    		FirstName varchar(255),
+	      );
+	      
+MariaDB: DROP TABLE table_name;
+MariaDB: INSERT INTO table_name(FirstName) Value('Fakhar Hussain'); // don't need to mention your table field names.
+MariaDB: Delete from table_name where id = 2; 
+MariaDB: Update table_name set FirstName = 'Fakhar' where id = 1;
+MariaDB: Select * From tableName; //show all the data from your tables.
+
+if you add or delete specific column then use: 
+MariaDB: alter Table table_name ADD field_name varchar(55);
+MariaDB: alter Table table_name DROP COLUMN column_name.
+
+show warnings; // for display warnings.
+
+NULL or Not NULL // if you dont specify your field as NOT NULL then you always CMD give NULL option..  
+
+a table have 3 fields id , name , class;
+MariaDB: INSERT INTO table_name(name) Value('Fakhar');
+then the output is :
+id: NULL, 
+name: Fakhar, 
+class: NULL,
+
+but if u specify as NOT NULL at the time of creating.
+MariaDB: CREATE TABLE table_name (
+    		PersonID int Not Null Default 0,
+    		LastName varchar(255) Not Null Default 'N/A',
+    		FirstName varchar(255) Not Null Default 'N/A',
+	      );
+
+and set the default value just like.
+
+
+Primary Key is for Specify Your Field;
+CREATE TABLE table_name (
+    		PersonID int Not Null Default 0,
+    		LastName varchar(255) Not Null Default 'N/A',
+    		FirstName varchar(255) Not Null Default 'N/A',
+    		Primary Key (PersonID)
+	      );
+if u can use automatic increment then u dont need to specify Uniqely for your id. 
+CREATE TABLE table_name (
+    		PersonID int Not Null Default 0 Auto_Increment,
+    		LastName varchar(255) Not Null Default 'N/A',
+    		FirstName varchar(255) Not Null Default 'N/A',
+    		Primary Key (PersonID)
+	      );
+
+SELECT DISTINCT // used for not to display similar items.
+Order By // used for display items in ascending or descending order.
+Limit // used for display how many items you want.
+Like // keyword is used for display items by just using your likly word.
+WHERE name LIKE '%fa%';
+
+MIN() // this is used for find minimum value in items. 
+MAX() // this is used for find maximum value in items.
+Count() // this is used for Count all values in items.
+SUM() // this is used for Sum of all values in items.
+AVG() // this is used for Average of all values in items.
+
+AND // this keyword used in WHERE & it means iff this & this conditions are true then something. (Where age 22 AND Name 'Fakhar';) 
+OR // this keyword used in WHERE & it means iff this OR this conditions are true then something. (Where age 20 OR age 25;) 
+NOT // this keyword used in WHERE & it means NOT this condition are true then something. (Where NOT age > 25;) 
+BETWEEN // this keyword used in WHERE & it means display some value between this 2 values. (Where age BETWEEN 20 and 25;) 
+IN // this keyword used in WHERE & it means display my specific values IN this field. (Where age IN(20,25) ;)
+
+CONCAT Function // used to concat two strings values like: select Concat(Name ,' ', LastName) as FullName from NewTab1;
+LOWER Function // used to Lower case values like: select Lower(Name) from NewTab1; 
+UPPER Function // used to Upper case values like: select Upper(Name) from NewTab1;
+CharLength // used to measure length of values like: select char_length(Name) from NewTab1 ;
+
+Primary Key // is used for just focus on the main ID;
+Foreign Key // is used to join 2 tables.a foriegn key is based on primary key on another table only.
+create table Orders(
+	OrderID int not null Primary Key,
+	OrderNumber int not null,
+	PersonID int Foreign Key (PersonId) References Persons(PersonId);
+)
+ 
+ 
+INNER JOIN // its used to join 2 tables with similar keys : 
+Select *  From Persons Inner Join Orders ON Persons.PersonId = Orders.PersonId;
+
+LEFT JOIN // its used to join 2 tables with similar keys But Left Side table is compulsary and Right Side Showing NULL values: 
+Select *  From Persons Inner Join Orders ON Persons.PersonId = Orders.PersonId;
+
+RIGHT JOIN // its used to join 2 tables with similar keys But Right Side table is compulsary and Left Side Showing NULL values: 
+Select *  From Persons Inner Join Orders ON Persons.PersonId = Orders.PersonId;
+
+
+
+
+
+
+
+
+
+
+

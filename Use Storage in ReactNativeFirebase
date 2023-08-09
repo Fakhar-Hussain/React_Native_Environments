@@ -1,0 +1,45 @@
+Stored Image in Firebase
+
+1st Step
+
+import {launchImageLibrary} from "react-native-image-picker";
+import storage from '@react-native-firebase/storage';
+
+
+2nd Step
+const ProfilePicture = () => {
+    launchImageLibrary({}, (item) => {
+      
+      if ( item.didCancel ) {
+        return alert('Sorry No Image Selected')
+      } 
+      else {
+      
+      let path = item.assets[0].uri
+      
+      const uploadTask = storage().ref().child(`/ProfilePicture/${'Profile'+'_'+Date.now()}`).putFile(path)
+      
+      // console.log(uploadTask)
+      
+	      uploadTask.on('state_changed' , 
+		      (snapshot) => {
+			var progress = ( snapshot.bytesTransferred / snapshot.totalBytes ) * 100;
+			if (progress == 100) {
+			  alert('Image Uploaded Successfully')
+			}
+
+		      },
+		      (error) => {
+			alert('Sorry! Image not Uploaded')
+		      },
+		      () => {
+			uploadTask.snapshot.ref.getDownloadURL()
+			.then( (downloadURL) => {
+			  console.log('File Available at' , downloadURL)
+			});
+		      }
+	      
+	      )
+	}
+    })
+  }

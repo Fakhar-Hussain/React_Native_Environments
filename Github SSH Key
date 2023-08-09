@@ -1,0 +1,21 @@
+Create SSH Key For Github
+Benifit is token not require anymore
+
+1st step
+ssh-keygen -t ed25519 -C "example@email.com"
+
+2nd step
+eval "$(ssh-agent -s)"
+
+3rd step
+ssh-add ~/.ssh/id_ed25519
+
+when requird
+cat ~/.ssh/id_ed25519.pub
+
+4th step
+ssh -T git@github.com
+
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEoiVJCdsgmy0Y4Vf3P0LBKHJLYYQbYhHIdWOilAeSoY fakharhussain.179@gmail.com
+

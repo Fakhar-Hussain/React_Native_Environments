@@ -1,0 +1,24 @@
+React Native Build
+
+for .aab file use this
+cd android
+gradlew clean
+gradlew bundleRelease
+gradlew bundleRelease -x bundleReleaseJsAndAssets
+
+location:ReactNativeAppName/android/app/build/outputs/bundle/release/Yourfile.aab 
+
+
+
+and for .apk file use this
+cd android
+gradlew clean
+gradlew assembleRelease
+gradlew assembleRelease -x bundleReleaseJsAndAssets
+
+location: ReactNativeAppName/android/app/build/outputs/apk/release/YourApkfile.apk 
+
+When My React Native Build apk App crashed again & again
+Add this into AndroidManifest.xml
+android:usesCleartextTraffic="true" 
+
