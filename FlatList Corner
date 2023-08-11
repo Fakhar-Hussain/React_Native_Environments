@@ -1,0 +1,26 @@
+How to set FlatList First Item in corner:
+
+// Put this in your code
+
+
+  const dataArray = [];
+  dataArray.push() //main array we put in push method.
+  
+  let numColumns = 2
+  let totalRows = Math.floor(dataArray.length / numColumns) // 3
+  let LastRow = dataArray.length - (totalRows * numColumns) // 10 - 3 * 3
+
+  while(LastRow !== 0 && LastRow !== numColumns){
+    dataArray.push({id: 1,empty: true }); // make sure id of main array have or not: this value in my array Eg: title: `block-${LastRow}` 
+    LastRow++
+  }
+  
+this past before the return() in FlatList
+ 
+if (item.empty === true) {
+   return <View style={{
+     width: 166,
+     marginBottom: "8%",
+     paddingHorizontal:"3%",
+   }} />
+}

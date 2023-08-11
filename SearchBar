@@ -1,0 +1,26 @@
+How to create a SearchBar:
+both methods are correct
+
+// 1st step 
+put this in your project
+text:any = item from array
+StoreBooksData = Main items Array 
+
+
+const SearchBar = (text: any) => {
+    if (text) {
+      let filteredList = StoreBooksData.filter( (item:any) => {
+        // return item.title.toLowerCase().includes(text.toLowerCase()) ;
+        return item.title.toLowerCase().indexOf(text.toLowerCase()) > -1 ;
+      })
+
+      setFilterData(filteredList);  // this is useState();
+    }else{
+      setFilterData(StoreBooksData);// this is useState();
+    }
+  } 
+  
+// this SearchBar() use in TextInput field where you can use as Search bar.
+
+//2nd step 
+we put filterData from useState() in FlatList data props;

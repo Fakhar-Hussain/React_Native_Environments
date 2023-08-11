@@ -1,0 +1,11 @@
+ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types
+
+If this error accur then you simply applied this method
+
+install npm i deprecated-react-native-prop-types
+
+then:
+
+The invariant seems to be enforced in node_modules/react-native/index.js, starting at line 436:
+
+remove all extra file except return files:
